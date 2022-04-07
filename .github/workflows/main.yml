@@ -12,4 +12,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Run Yelp's detect-secrets
-        uses: RobertFischer/detect-secrets-action@2.0.0
+        uses: RobertFischer/detect-secrets-action@latest
