@@ -1,0 +1,13 @@
+name: auto-release
+
+on:
+  release:
+    types: [published, edited]
+
+jobs:
+  job1:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: Actions-R-Us/actions-tagger@latest
+        with:
+          publish_latest_tag: true
