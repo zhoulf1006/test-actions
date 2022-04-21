@@ -11,3 +11,7 @@ jobs:
       - uses: Actions-R-Us/actions-tagger@latest
         with:
           publish_latest_tag: true
+      - name: printenv
+        run: env
+      - name: tag
+        run: echo ${{ github.ref }}
