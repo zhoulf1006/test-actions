@@ -13,5 +13,8 @@ jobs:
           publish_latest_tag: true
       - name: printenv
         run: env
-      - name: tag
-        run: echo ${{ github.ref }}
+      - name: show tag
+        shell: bash
+        run: |
+          TAG_ID=$(echo ${{ github.ref }} | awk -F/ '{print $NF}')
+          echo "TAG_ID=${TAG_ID}" >> GITHUB_ENV
