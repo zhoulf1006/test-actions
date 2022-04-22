@@ -11,10 +11,13 @@ jobs:
       - uses: Actions-R-Us/actions-tagger@latest
         with:
           publish_latest_tag: true
-      - name: printenv
-        run: env
+      # - name: printenv
+      #   run: env
       - name: show tag
         shell: bash
         run: |
           TAG_ID=$(echo ${{ github.ref }} | awk -F/ '{print $NF}')
+          echo ${TAG_ID}
           echo "TAG_ID=${TAG_ID}" >> GITHUB_ENV
+      - name: print env
+        run: echo ${{ env.TAG_ID }}
