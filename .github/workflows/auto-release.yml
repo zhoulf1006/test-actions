@@ -15,15 +15,15 @@ jobs:
       #   run: env
       - name: show tag
         shell: bash
-        run: echo "TAG_ID=$(echo ${{ github.ref }} | awk -F/ '{print $NF}')" >> $GITHUB_ENV
+        run: echo "TAG_ID=$(echo ${GITHUB_REF#refs/tags/})" >> $GITHUB_ENV
           # TAG_ID=$(echo ${{ github.ref }} | awk -F/ '{print $NF}')
           # echo ${TAG_ID}
           # echo "TAG_ID=${TAG_ID}" >> GITHUB_ENV
       - name: print env
         run: echo ${{ env.TAG_ID }}
-      - name: scrap tag
-        run: echo ${GITHUB_REF#refs/tags/}
-      - name: Set env
-        run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
-      - name: Test
-        run: echo $GITHUB_SHA_SHORT
+      # - name: scrap tag
+      #   run: echo ${GITHUB_REF#refs/tags/}
+      # - name: Set env
+      #   run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
+      # - name: Test
+      #   run: echo $GITHUB_SHA_SHORT
