@@ -21,6 +21,8 @@ jobs:
           # echo "TAG_ID=${TAG_ID}" >> GITHUB_ENV
       - name: print env
         run: echo ${{ env.TAG_ID }}
+      - name: scrap tag
+        run: echo ${GITHUB_REF#refs/tags/}
       - name: Set env
         run: echo "GITHUB_SHA_SHORT=$(echo $GITHUB_SHA | cut -c 1-6)" >> $GITHUB_ENV
       - name: Test
